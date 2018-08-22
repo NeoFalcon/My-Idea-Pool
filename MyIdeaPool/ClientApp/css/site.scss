@@ -1,0 +1,302 @@
+$green: rgba(0,168,67,1);
+$dark-green: rgba(42,56,66,0.65);
+$dark-gray: rgba(42,56,66,1);
+$dot-gray: rgba(42,56,66,0.4);
+$line-gray: rgba(42,56,66,0.20);
+$input-separator-gray: rgba(69,94,112,1);
+$hr-mainnav-gray: rgba(255,255,255,0.20);
+$score-gray: rgba(74,74,74,1);
+$white: rgba(255,255,255,1);
+
+@mixin box-shadow($value) {
+	box-shadow: $value;
+	-webkit-box-shadow: $value;
+}
+
+@mixin transition($value) {
+	transition: $value;
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-o-transition: $value;
+}
+
+body {
+	font-family: Calibri;
+	font-size: 16px;
+	color: $dark-gray;
+
+	.container > .row {
+		border-right: 1px solid $line-gray;
+	}
+
+	a {
+		color: $green;
+	}
+
+	.flex-center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.full-height {
+		height: 100vh;
+	}
+
+	input[type=text].form-control, input[type=password].form-control {
+		border: 0;
+		border-bottom: 1px solid $input-separator-gray;
+		border-radius: 0;
+		font-size: 16px;
+		@include box-shadow(none);
+	}
+
+	.form-validation-errors {
+		color: red;
+	}
+
+	.main-nav {
+		background-color: $green;
+		min-height: 100vh;
+		color: $white;
+		padding: 37px 30px 0 30px;
+		text-align: center;
+
+		.logo {
+			background-image: url('../images/ideapool_icon.png');
+			width: 64px;
+			height: 64px;
+			margin: 0 auto;
+		}
+
+		.app-name {
+			text-align: center;
+			margin-top: 15px;
+		}
+
+		hr {
+			border: 1px solid $hr-mainnav-gray;
+			margin: 45px 0;
+		}
+
+		.user-avatar {
+			width: 64px;
+			height: 64px;
+		}
+
+		.user-name {
+			margin: 5px 0;
+			font-size: 20px;
+		}
+
+		.logout {
+			cursor: pointer;
+			color: $dark-green;
+		}
+	}
+
+	.my-ideas-nav {
+		margin: 0 30px;
+		width: 771.75px;
+		position: absolute;
+
+		h2 {
+			margin: 45px 30px;
+			float: left;
+		}
+
+		.add-idea-button {
+			background-image: url('../images/btn_addanidea.png');
+			width: 50px;
+			height: 50px;
+			float: right;
+			margin: 45px 0;
+			cursor: pointer;
+		}
+
+		hr {
+			clear: both;
+			border: 1px solid $line-gray;
+		}
+	}
+
+	.registration {
+		width: 485.2px;
+
+		h1 {
+			text-align: center;
+		}
+
+		form {
+			.form-control {
+				margin-top: 30px;
+			}
+
+			.row {
+				margin-top: 45px;
+
+				button {
+					background-color: $green;
+					color: $white;
+					text-transform: uppercase;
+					border: 0;
+					font-size: 14px;
+					width: 151px;
+					height: 40px;
+				}
+			}
+		}
+	}
+
+	.got-ideas {
+		.picture {
+			background-image: url('../images/bulb.png');
+			background-size: 64px 96px;
+			background-position-x: center;
+			background-repeat: no-repeat;
+			width: 90px;
+			height: 96px;
+			margin-bottom: 15px;
+		}
+
+		.text {
+			font-size: 20px;
+		}
+	}
+
+	.ideas-list {
+		margin: 177px 0 0 60px;
+		position: absolute;
+
+		thead tr {
+			height: 50px;
+		}
+
+		td {
+			padding-right: 7px;
+		}
+	}
+
+	.idea {
+		height: 60px;
+		vertical-align: text-top;
+
+		.dot {
+			background-color: $dot-gray;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+		}
+
+		input[type=text].form-control {
+			width: 416px;
+		}
+
+		select.form-control {
+			width: 62px;
+		}
+
+		.idea-name {
+			width: 416px;
+		}
+
+		.impact-score, .ease-score, .confidence-score {
+			color: $score-gray;
+			width: 62px;
+		}
+
+		.actions {
+			vertical-align: top;
+
+			&.editing {
+				padding-top: 9px;
+			}
+
+			div {
+				height: 25px;
+				@include transition(opacity linear 0.1s);
+
+				&.opaque {
+					opacity: 1;
+				}
+
+				&.transparent {
+					opacity: 0;
+				}
+
+				.confirm-add {
+					cursor: pointer;
+					background-image: url('../images/confirm_v.png');
+					background-size: cover;
+					width: 19px;
+					height: 14px;
+					float: left;
+					margin-right: 10px;
+				}
+
+				.cancel-add {
+					cursor: pointer;
+					background-image: url('../images/cancel_x.png');
+					background-size: cover;
+					width: 16px;
+					height: 16px;
+					float: left;
+				}
+
+				.edit-idea {
+					cursor: pointer;
+					background-image: url('../images/pen.png');
+					background-size: cover;
+					width: 20px;
+					height: 20px;
+					float: left;
+					margin-right: 10px;
+				}
+
+				.delete-idea {
+					cursor: pointer;
+					background-image: url('../images/bin.png');
+					width: 16px;
+					height: 20px;
+					float: left;
+				}
+			}
+		}
+	}
+
+	.modal {
+		text-align: center;
+
+		.modal-dialog-centered {
+			margin-top: calc(50vh - 110px);
+
+			.modal-header {
+				border-bottom: 0;
+			}
+
+			.modal-body {
+				min-height: 90px;
+			}
+
+			.modal-footer {
+				border-top: 0;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 18px;
+				text-align: center;
+
+				.close-modal {
+					float: left;
+					cursor: pointer;
+					color: $dark-gray;
+					width: 50%;
+				}
+
+				.delete-idea {
+					cursor: pointer;
+					color: $green;
+				}
+			}
+		}
+	}
+}
